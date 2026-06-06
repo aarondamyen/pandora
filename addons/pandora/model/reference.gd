@@ -5,6 +5,12 @@ enum Type { ENTITY, CATEGORY }
 var _entity_id: String
 var _type: Type
 
+static func ForEntity(entity: PandoraEntity) -> PandoraReference:
+	return PandoraReference.new(entity.get_entity_id(), PandoraReference.Type.ENTITY)
+
+static func ForCategory(category: PandoraCategory) -> PandoraReference:
+	return PandoraReference.new(category.get_category_id(), PandoraReference.Type.CATEGORY)
+
 
 func _init(entity_id: String, type: Type) -> void:
 	_entity_id = entity_id
