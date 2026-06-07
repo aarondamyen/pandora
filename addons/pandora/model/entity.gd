@@ -433,6 +433,18 @@ func set_resource(property_name: String, value: Resource) -> void:
 		_set_instance_property(property_name, value)
 
 
+func set_array(property_name: String, value: Array) -> void:
+	if not is_instance():
+		push_warning(
+			"Pandora: unable to set porperty - create instance first via PandoraEntity.instantiate()"
+		)
+		return
+	if not has_entity_property(property_name):
+		push_warning("unknown array property %s on entity %s" % [property_name, get_entity_id()])
+	else:
+		_set_instance_property(property_name, value)
+
+
 func set_vector2(property_name: String, value: Vector2) -> void:
 	if not is_instance():
 		push_warning(
